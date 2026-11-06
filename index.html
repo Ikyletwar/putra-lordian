@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Putra Lordian L — Content Creator & Visual Storyteller</title>
-    <meta name="description" content="Portfolio Putra Lordian L. Videographer, motion designer, dan editor.">
+    <title data-i18n="page.title">Portfolio</title>
+    <meta name="description" content="Portfolio of Lrdyan. Videographer, motion designer, and editor.">
     
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +12,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Anti-flash: apply theme & lang before render
+        (function() {
+            var t = localStorage.getItem('theme');
+            if (!t) t = 'dark';
+            document.documentElement.setAttribute('data-theme', t);
+            var l = localStorage.getItem('lang');
+            if (!l) l = 'en';
+            document.documentElement.setAttribute('lang', l);
+        })();
+    </script>
 </head>
 <body>
 
@@ -22,43 +33,71 @@
 
     <header class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo magnetic" data-target="">Putra Lordian L<span class="accent">.</span></a>
-            
-            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
-                <span></span>
-                <span></span>
-            </button>
+            <a href="#" class="logo magnetic" data-target="">Lrdyan<span class="accent">.</span></a>
 
             <nav class="nav-links" id="nav-links">
-                <a href="#work" data-target="#work" class="nav-link magnetic">Work</a>
-                <a href="#about" data-target="#about" class="nav-link magnetic">About</a>
-                <a href="#contact" data-target="#contact" class="nav-link magnetic">Contact</a>
+                <a href="#work" data-target="#work" class="nav-link magnetic" data-i18n="nav.work">Work</a>
+                <a href="#about" data-target="#about" class="nav-link magnetic" data-i18n="nav.about">About</a>
+                <a href="#contact" data-target="#contact" class="nav-link magnetic" data-i18n="nav.contact">Contact</a>
             </nav>
+
+            <div class="nav-actions">
+                <button class="toggle-btn" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                        <circle cx="12" cy="12" r="4"/>
+                        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+
+                <button class="toggle-btn lang-toggle" id="lang-toggle" aria-label="Toggle language">
+                    <span class="lang-opt" data-lang="en">EN</span>
+                    <span class="lang-sep">/</span>
+                    <span class="lang-opt" data-lang="id">ID</span>
+                </button>
+
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </header>
 
     <main id="main-view">
-        <section class="hero container">
+        <section class="hero container" id="top">
             <div class="hero-top fade-up">
-                <p class="hero-intro">Putra Lordian L.<br>Content Creator & Visual Storyteller.</p>
-                <div class="status">
+                <p class="hero-intro" data-i18n="hero.intro">Lrdyan.<br>Content Creator & Visual Storyteller.</p>
+                <div class="hero-badge-row">
+                    <div class="take-badge"><span class="take-label">TAKE</span><span class="take-num">01</span></div>
+                    <div class="status">
                     <span class="dot"></span>
-                    <span>Available for work</span>
+                    <span data-i18n="hero.status">Available for work</span>
+                    </div>
                 </div>
             </div>
 
             <h1 class="hero-title" id="hero-title">
-                <span class="line"><span class="word">Visual</span> <span class="word italic accent">yang</span></span>
-                <span class="line indent"><span class="word">bercerita.</span></span>
+                <span class="line"><span class="word" data-i18n="hero.title">Portfolio</span><span class="word accent">.</span></span>
             </h1>
+
+            <p class="hero-sub fade-up" data-i18n="hero.sub">A curated selection of visual works.</p>
 
             <div class="hero-bottom fade-up">
                 <div class="hero-desc">
-                    <p>Videographer, motion designer, dan editor. Merangkai gambar menjadi cerita yang membekas.</p>
+                    <p data-i18n="hero.desc">Videographer, motion designer, and editor. Crafting visuals into stories that linger.</p>
                 </div>
                 <div class="hero-video-wrapper" data-lenis-prevent>
                     <div class="media-fallback"></div>
                     <video src="assets/hero.mp4" autoplay muted loop playsinline></video>
+                    <div class="viewfinder">
+                        <span class="vf-corner tl"></span>
+                        <span class="vf-corner tr"></span>
+                        <span class="vf-corner bl"></span>
+                        <span class="vf-corner br"></span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -66,40 +105,32 @@
         <section id="about" class="about-section container">
             <div class="about-grid">
                 <div class="about-image-wrapper fade-up">
-                    <img src="assets/profil.jpeg" alt="Putra Lordian L" class="about-img" 
+                    <img src="assets/profil.jpeg" alt="Lrdyan" class="about-img" 
                          onerror="this.style.display='none'; document.getElementById('fallback-about').style.display='flex';">
-                    <span class="about-fallback" id="fallback-about" style="display:none;">P</span>
+                    <span class="about-fallback" id="fallback-about" style="display:none;">L</span>
                 </div>
                 
                 <div class="about-text">
-                    <p class="label fade-up">About Me</p>
-                    <h2 class="section-title" style="margin-bottom: 2rem;">Di balik <br><span class="italic accent">lensa.</span></h2>
+                    <p class="label fade-up" data-i18n="about.label">About Me</p>
+                    <h2 class="section-title" style="margin-bottom: 2rem;" data-i18n="about.title">Behind <br>the <span class="italic accent">lens.</span></h2>
                     
-                    <div class="narrative">
-                        <p>Halo, saya <strong>Putra Lordian L</strong>. Seorang siswa dari SMA Negeri 4 Maluku Tengah yang percaya bahwa setiap momen memiliki ceritanya sendiri.</p>
-                        
-                        <p>Ketertarikan saya pada dunia visual dimulai dari rasa ingin tahu: bagaimana sebuah gambar diam bisa menyimpan ribuan kata, dan bagaimana potongan video bisa membuat orang merasakan emosi yang sama dengan yang saya rasakan di balik kamera.</p>
-                        
-                        <p>Dari videografi, motion graphic, hingga proses editing, saya mendedikasikan waktu untuk terus belajar dan mengasah kepekaan visual. Bagi saya, karya yang baik bukan hanya tentang resolusi 4K atau transisi yang rumit, melainkan tentang <em>kejujuran cerita</em> yang disampaikan di dalamnya.</p>
-
-                        <p>Di luar urusan visual, hobi saya cukup sederhana: <strong>mencoba segala hal yang bisa dicoba</strong>. Bagi saya, rasa penasaran adalah bahan bakar utama—entah itu mempelajari perangkat baru, mengeksplorasi sudut pandang yang belum pernah saya ambil, atau sekadar melangkah ke hal-hal di luar zona nyaman. Sebab dari situlah, cerita-cerita baru lahir.</p>
-                    </div>
+                    <div class="narrative" data-i18n-narrative="about.narrative"></div>
                 </div>
             </div>
         </section>
 
         <div class="marquee">
             <div class="marquee-inner" id="marquee">
-                <span>Videography <em>✦</em> Motion Design <em>✦</em> Color Grading <em>✦</em> Editing <em>✦</em> Storytelling <em>✦</em>&nbsp;</span>
-                <span aria-hidden="true">Videography <em>✦</em> Motion Design <em>✦</em> Color Grading <em>✦</em> Editing <em>✦</em> Storytelling <em>✦</em>&nbsp;</span>
+                <span data-i18n="marquee.text">Videography <em>✦</em> Motion Design <em>✦</em> Color Grading <em>✦</em> Editing <em>✦</em> Storytelling <em>✦</em>&nbsp;</span>
+                <span aria-hidden="true" data-i18n="marquee.text">Videography <em>✦</em> Motion Design <em>✦</em> Color Grading <em>✦</em> Editing <em>✦</em> Storytelling <em>✦</em>&nbsp;</span>
             </div>
         </div>
 
         <section id="work" class="work-section container">
             <div class="section-header fade-up">
                 <div>
-                    <p class="label">Selected Work</p>
-                    <h2 class="section-title">Arsip <span class="italic accent">Karya.</span></h2>
+                    <p class="label" data-i18n="work.label">Selected Work</p>
+                    <h2 class="section-title" data-i18n="work.title">Selected <span class="italic accent">Works.</span></h2>
                 </div>
                 <ul class="filters" id="filters"></ul>
             </div>
@@ -109,17 +140,17 @@
 
         <section id="contact" class="contact-section container">
             <div class="contact-inner">
-                <p class="label fade-up">Contact</p>
-                <h2 class="contact-title fade-up">
-                    Mari <span class="italic accent">bicara.</span>
+                <p class="label fade-up" data-i18n="contact.label">Contact</p>
+                <h2 class="contact-title fade-up" data-i18n="contact.title">
+                    Let's <span class="italic accent">talk.</span>
                 </h2>
-                <p class="contact-desc fade-up">
-                    Punya proyek yang butuh sentuhan visual? Atau sekadar ingin berdiskusi tentang ide? 
-                    Kirim pesan—saya selalu terbuka untuk cerita baru.
+                <p class="contact-desc fade-up" data-i18n="contact.desc">
+                    Have a project that needs a visual touch? Or just want to discuss ideas? 
+                    Drop a message—I'm always open to new stories.
                 </p>
 
-                <a href="mailto:hello@putralordian.com" class="contact-email fade-up magnetic">
-                    hello@putralordian.com
+                <a href="mailto:dianterefarry@gmail.com" class="contact-email fade-up magnetic">
+                    dianterefarry@gmail.com
                     <span class="arrow">&rarr;</span>
                 </a>
 
@@ -156,20 +187,66 @@
 
         <footer class="footer container">
             <div class="footer-inner fade-up">
-                <p>&copy; 2025 Putra Lordian L.</p>
-                <p>Made with curiosity.</p>
+                <p data-i18n="footer.copy">&copy; 2025 Lrdyan.</p>
+                <p data-i18n="footer.tag">Made with curiosity.</p>
             </div>
         </footer>
     </main>
 
     <section id="detail-view" class="detail-view" data-lenis-prevent>
         <div class="container">
-            <button class="btn-back magnetic" onclick="app.goHome()">&larr; Index</button>
+            <button class="btn-back magnetic" onclick="app.goHome()" data-i18n="detail.back">&larr; Index</button>
             <div id="detail-content"></div>
         </div>
     </section>
 
+
+
+    <nav class="chapter-rail" aria-hidden="true">
+        <div class="rail-line"></div>
+        <div class="rail-fill"></div>
+        <a href="#top" class="rail-node" data-section="top">
+            <span class="node-dot"></span>
+            <span class="node-label"><span class="node-num">01</span><span class="node-name" data-i18n="rail.portfolio">Portfolio</span></span>
+        </a>
+        <a href="#about" class="rail-node" data-section="about">
+            <span class="node-dot"></span>
+            <span class="node-label"><span class="node-num">02</span><span class="node-name" data-i18n="rail.about">Story</span></span>
+        </a>
+        <a href="#work" class="rail-node" data-section="work">
+            <span class="node-dot"></span>
+            <span class="node-label"><span class="node-num">03</span><span class="node-name" data-i18n="rail.works">Works</span></span>
+        </a>
+        <a href="#contact" class="rail-node" data-section="contact">
+            <span class="node-dot"></span>
+            <span class="node-label"><span class="node-num">04</span><span class="node-name" data-i18n="rail.contact">Contact</span></span>
+        </a>
+    </nav>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+
+    <nav class="chapter-rail" aria-hidden="true">
+        <div class="rail-line"></div>
+        <div class="rail-fill"></div>
+        <a href="#top" class="rail-node" data-section="top">
+            <span class="node-dot"></span>
+            <span class="node-label"><span class="node-num">01</span><span class="node-name" data-i18n="rail.portfolio">Portfolio</span></span>
+        </a>
+        <a href="#about" class="rail-node" data-section="about">
+            <span class="node-dot"></span>
+            <span class="node-label"><span class="node-num">02</span><span class="node-name" data-i18n="rail.about">Story</span></span>
+        </a>
+        <a href="#work" class="rail-node" data-section="work">
+            <span class="node-dot"></span>
+            <span class="node-label"><span class="node-num">03</span><span class="node-name" data-i18n="rail.works">Works</span></span>
+        </a>
+        <a href="#contact" class="rail-node" data-section="contact">
+            <span class="node-dot"></span>
+            <span class="node-label"><span class="node-num">04</span><span class="node-name" data-i18n="rail.contact">Contact</span></span>
+        </a>
+    </nav>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
     <script src="js/app.js"></script>
